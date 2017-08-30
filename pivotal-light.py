@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 import os
+import json
 import uuid
 from flask import Flask
 import redis
