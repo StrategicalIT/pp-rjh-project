@@ -45,15 +45,15 @@ def mainmenu():
 	## or put the rendr_template function directly in the "return" like this:
 	## return render_template('my_static_page.html')
     ## IMPORTANT: The html file must reside in a subdirectory named "templates"
-    bright = r.get('bdata',brightness)
+    bright = r.get('bdata')
     mid_html =  """
-    <body bgcolor="{}">
+    <body>
 
-    <center><h1><font color="white">Hi the brighness is:<br/>
+    <center><h1>Hi the brighness is:<br/>
     {}</br>
     <u>Main Menu</u>
     </center>
-    """.format(COLOR,bright,)
+    """.format(bright)
 
     response = begin_html + mid_html + end_html
 
