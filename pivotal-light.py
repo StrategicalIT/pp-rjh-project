@@ -30,6 +30,8 @@ def mainmenu():
     <! the link to your CSS would go here>
     </head>"""
 
+    
+
     ## Here we use the straight string format
     end_html = "</body></html>"
 
@@ -43,15 +45,15 @@ def mainmenu():
 	## or put the rendr_template function directly in the "return" like this:
 	## return render_template('my_static_page.html')
     ## IMPORTANT: The html file must reside in a subdirectory named "templates"
-
+    bright = r.get('bdata',brightness)
     mid_html =  """
     <body bgcolor="{}">
 
-    <center><h1><font color="white">Hi, I'm GUID:<br/>
+    <center><h1><font color="white">Hi the brighness is:<br/>
     {}</br>
     <u>Main Menu</u>
     </center>
-    """.format(COLOR,my_uuid,)
+    """.format(COLOR,bright,)
 
     response = begin_html + mid_html + end_html
 

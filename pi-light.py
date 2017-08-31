@@ -21,10 +21,14 @@ def loop():
         if brightness > 100:
     			brightness = 100
 
-		counter = r.incr('new_counter')
-		brightness_data = 'brightness' + str(counter)
-		r.hmset(brightness_data,{'station':station_id,'brightness':brightness})
-		time.sleep(0.5)
+		# counter = r.incr('new_counter')
+		# brightness_data = 'brightness' + str(counter)
+		# r.hmset('brightness_data',{'station':station_id,'brightness':brightness})
+        r.set('bdata',brightness)
+        print brightness
+		time.sleep(1.0)
+        count += 1
+        
 
 if __name__ == '__main__':
     init()
