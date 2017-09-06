@@ -1,13 +1,15 @@
 #!/usr/bin/env python
-import time
-import uuid
+import os
 import ADC0832
 import redis
 
-# app = Flask(__name__)
-station_id = str(uuid.uuid1())
+f = open('../redis.txt')
+redis_info = f.readlines()
+f.close()
+redis_details = redis_info.split(',')
 
-r = redis.Redis(host='host', port='port', password='password')
+r = redis.Redis(host=redis_details[1], port=redis_details[2], password=redis_details[3])
+
 
 def init():
     ADC0832.setup()
@@ -21,10 +23,7 @@ def loop():
         if brightness > 100:
     			brightness = 100
 
-		# counter = r.incr('new_counter')
-		# brightness_data = 'brightness' + str(counter)
-		# r.hmset('brightness_data',{'station':station_id,'brightness':brightness})
-        r.set('bdata',brightness)
+		r.set('bdata',brightness)
         print brightness
         time.sleep(1.0)
         count += 1
