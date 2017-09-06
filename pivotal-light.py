@@ -28,6 +28,9 @@ def mainmenu():
     <html>
     <head>
     <! the link to your CSS would go here>
+    <centre>
+    <h1>The Brightness Centre</h1></br>
+    </centre>
     </head>"""
 
     
@@ -49,7 +52,7 @@ def mainmenu():
     mid_html =  """
     <body>
 
-    <center><h1>Hi the brighness is:<br/>
+    <center><h1>Hi the brighness in your location is:<br/>
     {}</br>
     <u>Main Menu</u>
     </center>
