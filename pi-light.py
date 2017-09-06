@@ -7,7 +7,7 @@ import redis
 # app = Flask(__name__)
 station_id = str(uuid.uuid1())
 
-r = redis.Redis(host='redis-18169.c14.us-east-1-2.ec2.cloud.redislabs.com', port='18169', password='9qQFLXoHPjBTPbtn')
+r = redis.Redis(host='host', port='port', password='password')
 
 def init():
     ADC0832.setup()
