@@ -3,11 +3,12 @@ import os
 import ADC0832
 import redis
 
+#open file with redis details
 f = open('../redis.txt')
 redis_info = f.readlines()
 f.close()
 redis_details = redis_info.split(',')
-
+#use redis details from file to login to redis instance on PCF
 r = redis.Redis(host=redis_details[1], port=redis_details[2], password=redis_details[3])
 
 
@@ -16,15 +17,18 @@ def init():
 
 def loop():
     count = 0
+    #loop to gather brightness value and populate varible
     while count < 100:
         brightness = ADC0832.getResult() - 80
         if brightness < 0:
     			brightness = 0
         if brightness > 100:
     			brightness = 100
-
+        #write brightness varible to redis
 		r.set('bdata',brightness)
+        #output brightness value to console, not need for app but helpful for testing
         print brightness
+        
         time.sleep(1.0)
         count += 1
         
