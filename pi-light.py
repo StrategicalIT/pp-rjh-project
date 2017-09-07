@@ -51,7 +51,7 @@ def loop():
     #as I don't have my sensor board with my Pi
     print region_name
     polly = boto3.client('polly', region_name='us-west-2')
-    words_to_say = "The current brightness is" + brightness + ",and ,Polly would like a cracker"
+    words_to_say = "The current brightness is" + 'brightness' + ",and ,Polly would like a cracker"
 
     response = polly.synthesize_speech(
         OutputFormat='mp3',
