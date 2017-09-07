@@ -33,7 +33,7 @@ def init():
 def loop():
     count = 0
     #loop to gather brightness value and populate varible
-    while count < 10:
+    while count < 2:
         brightness = ADC0832.getResult() - 80
         if brightness < 0:
             brightness = 0
@@ -50,7 +50,7 @@ def loop():
     #I'm just going to get brightness read via AWS Polly once at the end of the loop
     #as I don't have my sensor board with my Pi
     print region_name
-    polly = boto3.client('polly')
+    polly = boto3.client('polly', region_name='us-west-2')
     words_to_say = "The current brightness is" + brightness + ",and ,Polly would like a cracker"
 
     response = polly.synthesize_speech(
