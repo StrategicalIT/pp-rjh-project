@@ -61,12 +61,12 @@ def loop():
         VoiceId='Emma')    
     with open(speech_file, 'wb') as s:
         s.write(response['AudioStream'].read())        
-    pygame.init()
-    mixer.init()
-    mixer.music.load(speech_file)
-    mixer.music.play()
-    #import subprocess
-    #subprocess.call(["ogg123","speech.oga"])
+    #pygame.init()
+    #mixer.init()
+    #mixer.music.load(speech_file)
+    #mixer.music.play()
+    import subprocess
+    subprocess.call(["ogg123",speech_file])
 
 
         
