@@ -54,14 +54,14 @@ def loop():
     words_to_say = "The current brightness is" + 'brightness' + ",and ,Polly would like a cracker"
 
     response = polly.synthesize_speech(
-        OutputFormat='mp3',
+        OutputFormat='ogg_vorbis',
         Text=words_to_say,
         TextType='text',
         VoiceId='Emma')    
-    with open('speech.mp3', 'wb') as s:
+    with open('speech.ogg', 'wb') as s:
         s.write(response['AudioStream'].read())        
     mixer.init()
-    mixer.music.load('speech.mp3')
+    mixer.music.load('speech.ogg')
     mixer.music.play()
 
 
