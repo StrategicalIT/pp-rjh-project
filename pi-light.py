@@ -51,7 +51,7 @@ def loop():
     #I'm just going to get brightness read via AWS Polly once at the end of the loop
     #as I don't have my sensor board with my Pi
     polly = boto3.client('polly')
-    words_to_say = "The current brightness is" + 'brightness' + ",and ,Polly would like a cracker"
+    words_to_say = "The current brightness is" + str(brightness) + ",and ,Polly would like a cracker"
     speech_file = 'speech.oga'
 
     response = polly.synthesize_speech(
