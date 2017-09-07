@@ -14,7 +14,7 @@ redis_details = []
 for line in redis_info:
     redis_details = line.split(',')
     #use redis details from file to login to redis instance on PCF
-    r = redis.Redis(host=redis_details[1], port=redis_details[2], password=redis_details[3])
+    #r = redis.Redis(host=redis_details[1], port=redis_details[2], password=redis_details[3])
     print redis_details[1]
 
 
