@@ -10,9 +10,10 @@ from pygame import mixer
 #Set AWS details from enviroment varibles
 #test = os.environ['MAIL']
 #print test
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS'],
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET'],
-AWS_REGION = 'us-west-2'
+aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],
+aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],
+region = os.environ['AWS_DEFAULT_REGION'],
+region_name = os.environ['AWS_DEFAULT_REGION'],
 
 #open file with redis details
 f = open('../redis.txt')
