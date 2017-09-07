@@ -1,8 +1,15 @@
 #!/usr/bin/env python
-import os
 import time
 import ADC0832
 import redis
+import boto3
+import pygame
+from pygame import mixer
+
+#Set AWS details from enviroment varibles
+aws_access_key_id = os.environ['AWS_ACCESS'],
+aws_secret_access_key = os.environ['AWS_SECRET'],
+region_name = 'us-west-2'
 
 #open file with redis details
 f = open('../redis.txt')
@@ -30,12 +37,30 @@ def loop():
         if brightness > 100:
             brightness = 100
         #write brightness varible to redis
-        r.set('bdata',brightness)
-        #output brightness value to console, not need for app but helpful for testing
+        r.set('bdata', brightness)
+        #output brightness value to console, not needed for app but helpful for testing
         print brightness
 
         time.sleep(1.0)
         count += 1
+
+    #I'm just going to get brightness read via AWS Polly once at the end of the loop
+    #as I don't have my sensor board with my Pi
+    polly = boto3.client('polly')
+    words_to_say = "The current brightness is" + brightness + ",and ,Polly would like a cracker"
+
+    response = polly.synthesize_speech(
+        OutputFormat='mp3',
+        Text=words_to_say,
+        TextType='text',
+        VoiceId='Emma')    
+    with open('speech.mp3', 'wb') as f:
+        f.write(response['AudioStream'].read())        
+    mixer.init()
+    mixer.music.load('speech.mp3')
+    mixer.music.play()
+
+
         
 
 if __name__ == '__main__':
