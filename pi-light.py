@@ -10,9 +10,9 @@ from pygame import mixer
 #Set AWS details from enviroment varibles
 #test = os.environ['MAIL']
 #print test
-aws_access_key_id = os.environ['AWS_ACCESS'],
-aws_secret_access_key = os.environ['AWS_SECRET'],
-region_name='us-west-2'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS'],
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET'],
+AWS_REGION = 'us-west-2'
 
 #open file with redis details
 f = open('../redis.txt')
@@ -50,7 +50,7 @@ def loop():
     #I'm just going to get brightness read via AWS Polly once at the end of the loop
     #as I don't have my sensor board with my Pi
     print region_name
-    polly = boto3.client('polly', region_name='us-west-2')
+    polly = boto3.client('polly')
     words_to_say = "The current brightness is" + 'brightness' + ",and ,Polly would like a cracker"
 
     response = polly.synthesize_speech(
