@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import time
 import ADC0832
 import redis
