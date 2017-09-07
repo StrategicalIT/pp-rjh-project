@@ -58,10 +58,10 @@ def loop():
         Text=words_to_say,
         TextType='text',
         VoiceId='Emma')    
-    with open('speech.ogg', 'wb') as s:
+    with open('speech.oga', 'wb') as s:
         s.write(response['AudioStream'].read())        
     mixer.init()
-    mixer.music.load('speech.ogg')
+    mixer.music.load('speech.oga')
     mixer.music.play()
 
 
