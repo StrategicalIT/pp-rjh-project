@@ -12,7 +12,7 @@ from pygame import mixer
 #print test
 aws_access_key_id = os.environ['AWS_ACCESS'],
 aws_secret_access_key = os.environ['AWS_SECRET'],
-region_name = 'us-west-2'
+region_name='us-west-2'
 
 #open file with redis details
 f = open('../redis.txt')
