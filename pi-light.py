@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import time
 import ADC0832
 import redis
 
@@ -25,10 +26,10 @@ def loop():
         if brightness > 100:
     			brightness = 100
         #write brightness varible to redis
-		r.set('bdata',brightness)
+        r.set('bdata',brightness)
         #output brightness value to console, not need for app but helpful for testing
         print brightness
-        
+
         time.sleep(1.0)
         count += 1
         
