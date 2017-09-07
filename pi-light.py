@@ -52,16 +52,17 @@ def loop():
     #as I don't have my sensor board with my Pi
     polly = boto3.client('polly')
     words_to_say = "The current brightness is" + 'brightness' + ",and ,Polly would like a cracker"
+    speech_file = 'speech.oga'
 
     response = polly.synthesize_speech(
         OutputFormat='ogg_vorbis',
         Text=words_to_say,
         TextType='text',
         VoiceId='Emma')    
-    with open('speech.oga', 'wb') as s:
+    with open(speech_file, 'wb') as s:
         s.write(response['AudioStream'].read())        
     mixer.init()
-    mixer.music.load('speech.oga')
+    mixer.music.load(speech_file)
     mixer.music.play()
 
 
