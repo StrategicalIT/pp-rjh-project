@@ -49,6 +49,7 @@ def loop():
 
     #I'm just going to get brightness read via AWS Polly once at the end of the loop
     #as I don't have my sensor board with my Pi
+    print region_name
     polly = boto3.client('polly')
     words_to_say = "The current brightness is" + brightness + ",and ,Polly would like a cracker"
 
