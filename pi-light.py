@@ -8,8 +8,8 @@ import pygame
 from pygame import mixer
 
 #Set AWS details from enviroment varibles
-aws_access_key_id = os.environ['AWS_ACCESS'],
-aws_secret_access_key = os.environ['AWS_SECRET'],
+aws_access_key_id = os.environ.get['AWS_ACCESS'],
+aws_secret_access_key = os.environ.get['AWS_SECRET'],
 region_name = 'us-west-2'
 
 #open file with redis details
@@ -55,8 +55,8 @@ def loop():
         Text=words_to_say,
         TextType='text',
         VoiceId='Emma')    
-    with open('speech.mp3', 'wb') as f:
-        f.write(response['AudioStream'].read())        
+    with open('speech.mp3', 'wb') as s:
+        s.write(response['AudioStream'].read())        
     mixer.init()
     mixer.music.load('speech.mp3')
     mixer.music.play()
