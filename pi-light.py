@@ -33,7 +33,7 @@ def init():
 def loop():
     count = 0
     #loop to gather brightness value and populate varible
-    while count < 20:
+    while count < 10:
         brightness = ADC0832.getResult() - 80
         if brightness < 0:
             brightness = 0
