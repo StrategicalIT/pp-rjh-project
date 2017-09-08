@@ -19,7 +19,7 @@ port=CREDENTIALS["port"]
 password=CREDENTIALS["password"]
 
 #API call to Wunderground to get wether details for Melbourne
-url = "#http://api.wunderground.com/api/459098590d3c97e4/conditions/q/AU/melbourne.json"
+url = "http://api.wunderground.com/api/459098590d3c97e4/conditions/q/AU/melbourne.json"
 response = requests.get(url)
 #Parse the JSON reponse
 parsed = json.loads(response.content)
