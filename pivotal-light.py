@@ -14,9 +14,6 @@ r = redis.Redis(host=CREDENTIALS["hostname"], port=CREDENTIALS["port"], password
 
 #read from redis and populate varible to display
 bright = r.get('bdata')
-host=CREDENTIALS["hostname"]
-port=CREDENTIALS["port"]
-password=CREDENTIALS["password"]
 
 #API call to Wunderground to get wether details for Melbourne
 url = "http://api.wunderground.com/api/459098590d3c97e4/conditions/q/AU/melbourne.json"
@@ -37,11 +34,10 @@ def mainmenu():
     
     <center><h1>The brightness at your location is:</br>
     {}</br>
-    host {}   port {}  password {}</br>
     </center>
     </body>
     </html>
-    """.format(bright, host, port, password)
+    """.format(bright)
 
     #HTML for the weather section
     weather_html = """

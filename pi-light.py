@@ -4,8 +4,7 @@ import time
 import ADC0832
 import redis
 import boto3
-import pygame
-from pygame import mixer
+import subprocess
 
 #Set AWS details from enviroment varibles
 #test = os.environ['MAIL']
@@ -60,11 +59,7 @@ def loop():
         VoiceId='Emma')    
     with open(speech_file, 'wb') as s:
         s.write(response['AudioStream'].read())        
-    #pygame.init()
-    #mixer.init()
-    #mixer.music.load(speech_file)
-    #mixer.music.play()
-    import subprocess
+        
     subprocess.call(["ogg123",speech_file])
 
 
